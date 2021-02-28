@@ -1,5 +1,3 @@
-// Select all the elements in the HTML page 
-// and assign them to a variable 
 let now_playing = document.querySelector(".now-playing");
 let track_art = document.querySelector(".track-art");
 let track_name = document.querySelector(".track-name");
@@ -14,15 +12,15 @@ let volume_slider = document.querySelector(".volume_slider");
 let curr_time = document.querySelector(".current-time");
 let total_duration = document.querySelector(".total-duration");
 
-// Specify globally used values 
+// Глобальные переменные
 let track_index = 0;
 let isPlaying = false;
 let updateTimer;
 
-// Create the audio element for the player 
+// Создание тэга audio 
 let curr_track = document.createElement('audio');
 
-// Define the list of tracks that have to be played 
+// Массив объектов (Песня)
 let track_list = [
     {
         name: "Butterfly Effect",
@@ -42,6 +40,12 @@ let track_list = [
         image: "https://images.genius.com/2f88c0a52697a42d3d0fb1e3276d2411.640x640x1.jpg",
         path: "wet-dreamz.mp3",
     },
+    {
+        name: "One Dance",
+        artist: "Drake",
+        image: "https://cdn52.zvuk.com/pic?type=release&id=4093157&size=500x500&ext=jpg",
+        path: "one-dance.mp3",
+    }
 ];
 
 // Смена состояния (остановить или играть), зависит от текущего состояния
@@ -82,10 +86,10 @@ function nextTrack() {
     if(track_index == track_list.length) {
         track_index = 0;
     }
-    // Остановка текущего трэка
-    pauseTrack();
     // Загрузка следующего трэка
     loadTrack(track_index);
+    // Воспроизведение след трэка
+    playTrack();
 }
 
 function seekTo() {
@@ -131,16 +135,15 @@ function seekUpdate() {
 
 // Рандомный цвет заднего фона
 function randomBackgroundColor() {
-    // Get a random number between 64 to 256 
-    // (for getting lighter colors) 
+    // Получаем рандомные числа в диапазоне от 64 до 256 (для более ярких цветов)
     let red = Math.floor(Math.random() * 256) + 64;
     let green = Math.floor(Math.random() * 256) + 64;
     let blue = Math.floor(Math.random() * 256) + 64;
 
-    // Construct a color withe the given values 
-    let bgColor = "rgb(" + red + ", " + green + ", " + blue + ")";
+    // Объединяем цвета и получаем rgb цвет
+    let bgColor = `rgb(${red},${green},${blue})`;
 
-    // Set the background to the new color 
+    // Смена заднего фона
     document.body.style.background = bgColor;
 }
 
@@ -161,10 +164,10 @@ function loadTrack(track_index) {
     curr_track.load();
 
     // Обновление обложки, названия и исполнителя
-    track_art.style.backgroundImage = "url(" + track_list[track_index].image + ")";
+    track_art.style.backgroundImage = `url(${track_list[track_index].image})`;
     track_name.textContent = track_list[track_index].name;
     track_artist.textContent = track_list[track_index].artist;
-    now_playing.textContent = "PLAYING " + (track_index + 1) + " OF " + track_list.length;
+    now_playing.textContent = `PLAYING ${track_index + 1} OF ${track_list.length}`;
 
     // Обновление интервала времени
     updateTimer = setInterval(seekUpdate, 1000);

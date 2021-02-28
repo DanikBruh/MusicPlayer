@@ -80,6 +80,9 @@ video {
     justify-content: center;
     align-items: center;
 }
+input[type=range] {
+    outline: 0;
+}
 
 /* Modify the appearance of the slider */
 .seek_slider,
