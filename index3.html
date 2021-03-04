@@ -5,15 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <!-- Load FontAwesome icons -->
-  <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <!-- Load FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Player</title>
 </head>
 
 <body>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/8dJw5D_rusg?mute=1&controls=1" allowfullscreen></iframe>
+    <ul class="nav">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="index2.html">Видео</a></li>
+        <li><a class="active" href="index3.html">Аудио</a></li>
+    </ul>
 
     <!-- <audio controls>
         <source src="" type="audio/ogg">
@@ -23,7 +27,7 @@
 
     <div class="player">
 
-        <!-- Define the section for displaying details -->
+        <!-- Определение раздела для отображения деталей -->
         <div class="details">
             <div class="now-playing">PLAYING x OF y</div>
             <div class="track-art"></div>
@@ -31,7 +35,7 @@
             <div class="track-artist">Track Artist</div>
         </div>
 
-        <!-- Define the section for displaying track buttons -->
+        <!-- Определение раздела для отображения кнопок (элементов управления) -->
         <div class="buttons">
             <div class="prev-track" onclick="prevTrack()">
                 <i class="fa fa-step-backward fa-2x"></i>
@@ -44,14 +48,14 @@
             </div>
         </div>
 
-        <!-- Define the section for displaying the seek slider-->
+        <!-- Определение раздела для отображения ползунка времени(интервала) -->
         <div class="slider_container">
             <div class="current-time">00:00</div>
             <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
             <div class="total-duration">00:00</div>
         </div>
 
-        <!-- Define the section for displaying the volume slider-->
+        <!-- Определение раздела для отображения ползунка звука -->
         <div class="slider_container">
             <i class="fa fa-volume-down"></i>
             <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
@@ -59,8 +63,7 @@
         </div>
     </div>
 
-  
-    <script src="index.js"></script>
+    <script src="scriptMusic.js"></script>
 </body>
 
 </html>

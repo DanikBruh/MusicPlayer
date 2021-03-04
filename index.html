@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Загрузка иконок FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Player</title>
+</head>
+
+<body>
+
+    <ul class="nav">
+        <li><a class="active" href="index.html">Главная</a></li>
+        <li><a href="index2.html">Видео</a></li>
+        <li><a href="index3.html">Аудио</a></li>
+    </ul>
+
+    <marquee behavior="alternate" direction="left" bgcolor="#ffcc00">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit facilis aliquid dolorum qui assumenda
+        blanditiis expedita aut ipsa tempora omnis!
+    </marquee>
+
+    <div class="text">
+        Lorem ipsum dolor, <em>sit amet consectetur adipisicing elit.</em> Vitae quaerat, dolore, veritatis quod dolorum
+        id eligendi provident placeat <strong>eveniet reprehenderit vero. Ullam impedit voluptatem voluptates</strong>
+        rerum ipsum quia harum magni, recusandae eaque eveniet in <del>dignissimos</del>! Aspernatur ut facilis et
+        dolores optio molestias doloremque <mark>voluptatibus odio</mark> distinctio, porro quaerat.
+    </div>
+
+    <div class="list">
+        <h2>Вложенный список</h2>
+
+        <ul class="outer-list">
+            <li>Coffee</li>
+            <li>Tea
+                <ul class="inner-list">
+                    <li>Black tea</li>
+                    <li>Green tea</li>
+                </ul>
+            </li>
+            <li>Milk</li>
+        </ul>
+    </div>
+
+    <h2 class="table-header">Окрашиваемая таблица</h2>
+    <table>
+        <tbody>
+            <tr>
+                <th>№</th>
+                <th>Полное имя</th>
+                <th>Должность</th>
+                <th>Возраст</th>
+                <th>Состояние</th>
+                <th>Тип</th>
+
+            </tr>
+            <tr>
+                <th>1</th>
+                <th>Bill Gates</th>
+                <th>Основатель Microsoft</th>
+                <th>65</th>
+                <th>$119,1 млрд</th>
+                <th rowspan="3">Основатель компании</th>
+            </tr>
+            <tr>
+                <th>2</th>
+                <th>Ilon Mask</th>
+                <th>Основатель Tesla</th>
+                <th>49</th>
+                <th>$180 млрд</th>
+            </tr>
+            <tr>
+                <th>3</th>
+                <th>Mark Zuckeberg</th>
+                <th>Основатель Facebook</th>
+                <th>36</th>
+                <th>$101.7 млрд</th>
+            </tr>
+            <tr>
+                <th colspan="5">Суммарное состояние</th>
+                <th>$400,8 млрд</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="scriptTable.js"></script>
+</body>
+
+</html>

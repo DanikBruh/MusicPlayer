@@ -17,36 +17,27 @@ let track_index = 0;
 let isPlaying = false;
 let updateTimer;
 
-// Создание тэга audio 
+// Создание тэга <audio> 
 let curr_track = document.createElement('audio');
 
-// Массив объектов (Песня)
-let track_list = [
-    {
-        name: "Butterfly Effect",
-        artist: "Travis Scott",
-        image: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Astroworld_by_Travis_Scott.jpg/220px-Astroworld_by_Travis_Scott.jpg",
-        path: "butterfly-effect.mp3"
-    },
-    {
-        name: "Yea Yea",
-        artist: "Pop Smoke",
-        image: "https://media.npr.org/assets/img/2020/07/02/bw_rose_cover_sq-ebcb27b1b61edf014a164e3544ebc7f1d9904788.png",
-        path: "yea-yea.mp3"
-    },
-    {
-        name: "Wet Dreamz",
-        artist: "J Cole",
-        image: "https://images.genius.com/2f88c0a52697a42d3d0fb1e3276d2411.640x640x1.jpg",
-        path: "wet-dreamz.mp3",
-    },
-    {
-        name: "One Dance",
-        artist: "Drake",
-        image: "https://cdn52.zvuk.com/pic?type=release&id=4093157&size=500x500&ext=jpg",
-        path: "one-dance.mp3",
+// Класс "Трэк"
+class Track {
+    constructor(name, artist, image, path) {
+        this.name = name;
+        this.artist = artist;
+        this.image = image;
+        this.path = path;
     }
-];
+}
+
+// Массив объектов (Трэк)
+let track_list = [];
+// Добавление трэков
+track_list.push(new Track("One Dance", "Drake", "https://cdn52.zvuk.com/pic?type=release&id=4093157&size=500x500&ext=jpg", "one-dance.mp3"));
+track_list.push(new Track("Yea Yea", "Pop Smoke", "https://media.npr.org/assets/img/2020/07/02/bw_rose_cover_sq-ebcb27b1b61edf014a164e3544ebc7f1d9904788.png", "yea-yea.mp3"));
+track_list.push(new Track("Wet Dreamz", "J Cole", "https://images.genius.com/2f88c0a52697a42d3d0fb1e3276d2411.640x640x1.jpg", "wet-dreamz.mp3"));
+track_list.push(new Track("Butterfly Effect", "Travis Scott", "https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Astroworld_by_Travis_Scott.jpg/220px-Astroworld_by_Travis_Scott.jpg", "butterfly-effect.mp3"));
+
 
 // Смена состояния (остановить или играть), зависит от текущего состояния
 function playpauseTrack() {
@@ -91,69 +82,64 @@ function nextTrack() {
     // Воспроизведение след трэка
     playTrack();
 }
-
+// Установка момента трэка
 function seekTo() {
-    // Calculate the seek position by the 
-    // percentage of the seek slider  
-    // and get the relative duration to the track 
-    seekto = curr_track.duration * (seek_slider.value / 100);
-
-    // Set the current track position to the calculated seek position 
+    // Вычисление позиции элемента <input type="range"> по проценту ползунка
+    let seekto = curr_track.duration * (seek_slider.value / 100);
+    // Установка текущей позиции трека на рассчитанную позицию поиска
     curr_track.currentTime = seekto;
 }
-
+// Установка громкости в соответствии с установленным ползунком громкости в процентах.
 function setVolume() {
-    // Set the volume according to the percentage of the volume slider set 
     curr_track.volume = volume_slider.value / 100;
 }
-
+// Обновление счетчика времени
 function seekUpdate() { 
     let seekPosition = 0; 
     
-    // Check if the current track duration is a legible number 
+    // Проверка, является ли текущая длительность трека корректным числом
     if (!isNaN(curr_track.duration)) { 
       seekPosition = curr_track.currentTime * (100 / curr_track.duration); 
       seek_slider.value = seekPosition; 
     
-      // Calculate the time left and the total duration 
+      // Вычисление прошедшего и полного времени трэка
       let currentMinutes = Math.floor(curr_track.currentTime / 60); 
       let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60); 
       let durationMinutes = Math.floor(curr_track.duration / 60); 
       let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60); 
     
-      // Add a zero to the single digit time values 
+      // Добавление нуля однозначным числам
       if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; } 
       if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; } 
       if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; } 
       if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; } 
     
-      // Display the updated duration 
-      curr_time.textContent = currentMinutes + ":" + currentSeconds; 
-      total_duration.textContent = durationMinutes + ":" + durationSeconds; 
+      // Отображение времени
+      curr_time.innerText = currentMinutes + ":" + currentSeconds; 
+      total_duration.innerText = durationMinutes + ":" + durationSeconds; 
     } 
-  } 
-
+} 
 // Рандомный цвет заднего фона
 function randomBackgroundColor() {
-    // Получаем рандомные числа в диапазоне от 64 до 256 (для более ярких цветов)
-    let red = Math.floor(Math.random() * 256) + 64;
-    let green = Math.floor(Math.random() * 256) + 64;
-    let blue = Math.floor(Math.random() * 256) + 64;
+    // Получаем рандомные числа в диапазоне от 90 до 256 (для более ярких цветов)
+    let red = Math.floor(Math.random() * 256) + 90;
+    let green = Math.floor(Math.random() * 256) + 90;
+    let blue = Math.floor(Math.random() * 256) + 90;
 
     // Объединяем цвета и получаем rgb цвет
     let bgColor = `rgb(${red},${green},${blue})`;
+    console.log('bgColor: ', bgColor);
 
     // Смена заднего фона
     document.body.style.background = bgColor;
 }
-
-// Functiom to reset all values to their default 
+// Сброс времени
 function resetValues() {
-    curr_time.textContent = "00:00";
-    total_duration.textContent = "00:00";
+    curr_time.innerText = "00:00";
+    total_duration.innerText = "00:00";
     seek_slider.value = 0;
 }
-
+// Загрузка трэка
 function loadTrack(track_index) {
     // Очистка предыдущего таймера (интервала)
     clearInterval(updateTimer);

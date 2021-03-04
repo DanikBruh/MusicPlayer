@@ -1,14 +1,150 @@
+html { height: 100%; }
 body {
-    /* Smoothly transition the background color */
-    transition: all .5s;
+    /* Плавный переход для смены заднего фона на 3-ей странице */
+    transition: background .5s;
+    margin: 0;
+    padding: 0;
+    /* font-family: "proxima-nova", sans-serif; */
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-video {
+
+
+/* 1-я страница */
+
+/* Nav-bar */
+.nav {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    text-transform: uppercase;
+}
+.nav li {
+    padding: 7px 0;
+    letter-spacing: 3px;
+}
+.nav li a {
     display: block;
-    /* margin: 20px auto; */
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    position: relative;
+}
+.nav li a:hover:not(.active) {
+    background-color: #111;
+}
+.nav li a::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    height: 2px;
+    background: #fff;
+    border-radius: 1px;
+}
+.nav li a.active::after {
+    opacity: 1;
 }
 
-/* Using flex with the column direction to align items in a vertical direction */
+/* Text */
+.text {
+    margin: 40px;
+}
+/* Маркированный список */
+.list {
+    margin-left: 40px;
+}
+
+ul.outer-list {
+    list-style-type: upper-roman;
+}
+ul.inner-list {
+    list-style-type: square;
+}
+
+/* Table */
+.table-header {
+    margin: 40px 0 0 40px;
+}
+table {
+    margin: 20px 0 0 40px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    cursor: pointer;
+}
+table tr, table th {
+    border: 1px solid black;
+}
+table th {
+    padding: 10px;
+}
+
+
+
+/* 2-я страница */
+
+.hero-image {
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.pinimg.com/originals/c1/29/2c/c1292ca74af8c977de65d7aff847d19f.jpg"); */
+    background-image: url("https://i.pinimg.com/originals/c1/29/2c/c1292ca74af8c977de65d7aff847d19f.jpg");
+    /* background-image: url("https://www.wallpapertip.com/wmimgs/2-21790_beautiful-nature-images-4k.jpg"); */
+    /* background-image: url("https://wallpapershome.ru/images/wallpapers/severnoe-siyanie-5120x2880-severnoe-siyanie-17156.jpg"); */
+
+    height: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+.hero-text button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+.hero-text button:hover {
+    color: black;
+    background-color: #ddd;
+}
+
+/*  Videos  */
+.videos {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.videos iframe {
+    margin: 30px;
+    border: none;
+}
+
+
+
+/* 3-я страница */
+
+/* Использование flex с column direction для выравнивания элементов в вертикальном направлении */
 .player {
     height: 95vh;
     display: flex;
@@ -16,7 +152,6 @@ video {
     flex-direction: column;
     justify-content: center;
 }
-
 .details {
     display: flex;
     align-items: center;
@@ -24,67 +159,56 @@ video {
     justify-content: center;
     margin-top: 25px;
 }
-
-/* Changing the font sizes to suitable ones */
 .now-playing {
     font-size: 1rem;
 }
-
 .track-art {
     margin: 25px;
     height: 250px;
     width: 250px;
-    background-image: URL("https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Astroworld_by_Travis_Scott.jpg/220px-Astroworld_by_Travis_Scott.jpg");
+    /* background-image: URL("https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Astroworld_by_Travis_Scott.jpg/220px-Astroworld_by_Travis_Scott.jpg"); */
     background-size: cover;
     background-position: center;
     border-radius: 15%;
 }
-
 .track-name {
     font-size: 3rem;
 }
-
 .track-artist {
     font-size: 1.5rem;
 }
-
-/* Using flex with the row direction to align items in a horizontal direction */
 .buttons {
     display: flex;
     flex-direction: row;
     align-items: center; /* Vetical align */
 }
-
 .playpause-track,
 .prev-track,
 .next-track {
     padding: 25px;
-    /* opacity: 0.8; */
-
-    /* Smoothly transition the opacity */
+    opacity: 0.8;
     transition: opacity .2s;
 }
 
-/* Change the opacity when mouse is hovered */
 .playpause-track:hover,
 .prev-track:hover,
 .next-track:hover {
     opacity: 1.0;
 }
 
-/* Define the slider width so that it scales properly */
+/* Определение ширины ползунка, чтобы он правильно масштабировался */
 .slider_container {
     width: 75%;
     max-width: 400px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; /* Vetical align */
 }
 input[type=range] {
     outline: 0;
 }
 
-/* Modify the appearance of the slider */
+/* Изменение внешнего вида ползунка */
 .seek_slider,
 .volume_slider {
     -webkit-appearance: none;
@@ -97,7 +221,7 @@ input[type=range] {
     transition: opacity .2s;
 }
 
-/* Modify the appearance of the slider thumb */
+/* Изменение внешнего вида бегунка ползунка */
 .seek_slider::-webkit-slider-thumb,
 .volume_slider::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -110,7 +234,7 @@ input[type=range] {
     border-radius: 50%;
 }
 
-/* Change the opacity when mouse is hovered */
+/* Изменение прозрачности при наведении */
 .seek_slider:hover,
 .volume_slider:hover {
     opacity: 1.0;
@@ -119,7 +243,6 @@ input[type=range] {
 .seek_slider {
     width: 60%;
 }
-
 .volume_slider {
     width: 30%;
 }
@@ -134,8 +257,7 @@ i.fa-volume-up {
     padding: 10px;
 }
 
-/* Change the mouse cursor to a pointer 
-when hovered over */
+/* Изменение курсора мыши на указатель при наведении на элементы управления */
 i.fa-play-circle,
 i.fa-pause-circle,
 i.fa-step-forward,
