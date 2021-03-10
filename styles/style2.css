@@ -95,12 +95,6 @@ body {
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
-.videos iframe {
-    min-width: 350px;
-    width: 40%;
-    margin: 40px 0;
-    border: none;
-}
 .videos video {
     min-width: 350px;
     width: 40%;
@@ -111,12 +105,3 @@ body {
 video::-webkit-media-controls-fullscreen-button {
     display: none;
 }
-video::-webkit-media-controls-play-button {}
-video::-webkit-media-controls-play-button {}
-video::-webkit-media-controls-timeline {}
-video::-webkit-media-controls-current-time-display{}
-video::-webkit-media-controls-time-remaining-display {}
-video::-webkit-media-controls-time-remaining-display {}
-video::-webkit-media-controls-mute-button {}
-video::-webkit-media-controls-toggle-closed-captions-button {}
-video::-webkit-media-controls-volume-slider {}
