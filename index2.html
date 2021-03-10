@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Load FontAwesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Player</title>
+    <link rel="stylesheet" href="styles/style2.css">
+    <title>Video</title>
 </head>
 
 <body>
@@ -23,32 +21,41 @@
         <div class="hero-text">
             <h1 style="font-size:50px">Spectacular videos</h1>
             <p>GoPro FPV 4k videos</p>
-            <button>Показать видео</button>
+            <button id="showHideButton">Показать видео</button>
+            <button id="changeImageButton">Поменять картинку</button>
         </div>
     </div>
 
     <div class="videos">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/MKunD8H3G-8?start=18&controls=0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/xhWbh2pZc1Y?start=6&controls=0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/b9-cHk-7N8k?start=6&controls=0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/h5U50ZsFUaY?start=22&controls=0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/Zwgrt-CSLRc?start=12&controls=0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/5kUu97Vkwj4?start=64&controls=0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+       
+        <video height="315" controls>
+            <source src="videos/video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video height="315" controls>
+            <source src="videos/video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video height="315" controls>
+            <source src="videos/video3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video height="315" controls>
+            <source src="videos/video4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video height="315" controls>
+            <source src="videos/video5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video height="315" controls>
+            <source src="videos/video6.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+       
     </div>
 
-
+    <script src="scripts/scriptMedia.js"></script>
 </body>
 
 </html>

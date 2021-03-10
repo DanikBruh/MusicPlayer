@@ -1,0 +1,84 @@
+/* 1-я страница */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Nav-bar */
+.nav {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    text-transform: uppercase;
+}
+.nav li {
+    padding: 7px 0;
+    letter-spacing: 3px;
+}
+.nav li a {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    position: relative;
+}
+.nav li a:hover:not(.active) {
+    background-color: #111;
+}
+.nav li a::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    height: 2px;
+    background: #fff;
+    border-radius: 1px;
+}
+.nav li a.active::after {
+    opacity: 1;
+}
+
+/* Текст */
+.text {
+    margin: 40px;
+}
+/* Маркированный список */
+.list {
+    margin-left: 40px;
+}
+
+ul.outer-list {
+    list-style-type: upper-roman;
+}
+ul.inner-list {
+    list-style-type: square;
+}
+
+/* Таблица */
+.table-header {
+    margin: 40px 0 0 40px;
+}
+table {
+    margin: 20px 0 50px 40px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    cursor: pointer;
+}
+table tr, table th {
+    transition: all .2s linear;
+    border: 1px solid black;
+}
+table th {
+    padding: 10px;
+}
